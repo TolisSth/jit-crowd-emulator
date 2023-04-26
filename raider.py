@@ -28,7 +28,7 @@ fOptions = Options()
 driverList = []
 usernames = []
 
-if filePath is not "": 
+if filePath != "": 
     file = open(filePath, "r")
     contents = file.readlines()
     for line in contents: 
@@ -63,7 +63,7 @@ for i in range(numOfInstances):
     fieldName.send_keys(Keys.RETURN)
     print(usernames[num] + " is joining...")
 
-    print(usernames[num] + "Joined!")
+    print(usernames[num] + " joined!")
 
 print("Bot lifespan started")
 start_time = int(time.time())
