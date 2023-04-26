@@ -1,5 +1,7 @@
 #Author: Halis Apostolos 2023
 import os 
+import sys
+import select
 import random 
 import time
 from selenium import webdriver
@@ -63,15 +65,16 @@ for i in range(numOfInstances):
 
     print(usernames[i] + "Joined!")
 
-#Freezing program 
 print("Bot lifespan started")
-start_time = time.time()
-end_time = start_time + lifespan    
-while time.time() - start_time < end_time: 
-    print(time.time() - start_time)
-    emIn = input()
-    if emIn == "q":
-        break        
+start_time = int(time.time())
+end_time = int(start_time + lifespan)
+
+while time.time() < end_time: 
+    ready, _, _ = select.select([sys.stdin], [], [], 0.1)
+    if ready:
+        userIn = sys.stdin.readline().strip()
+        if userIn == "q" or "Q":
+            break
 
 #shutting the instances down
 for i in range(len(driverList)):
