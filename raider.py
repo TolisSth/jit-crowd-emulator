@@ -1,10 +1,11 @@
+#Author: Halis Apostolos 2023
+import os 
+import random 
+import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
-import os 
-import random 
-import time
 
 #branding
 print("       _ _ _     _____       _     _ ")
@@ -65,7 +66,8 @@ for i in range(numOfInstances):
 #Freezing program 
 print("Bot lifespan started")
 start_time = time.time()
-while time.time() - start_time < lifespan: 
+end_time = start_time + lifespan    
+while time.time() - start_time < end_time: 
     print(time.time() - start_time)
     emIn = input()
     if emIn == "q":
