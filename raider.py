@@ -61,9 +61,9 @@ for i in range(numOfInstances):
     fieldName.send_keys(usernames[num])
     time.sleep(1)
     fieldName.send_keys(Keys.RETURN)
-    print(usernames[i] + " is joining...")
+    print(usernames[num] + " is joining...")
 
-    print(usernames[i] + "Joined!")
+    print(usernames[num] + "Joined!")
 
 print("Bot lifespan started")
 start_time = int(time.time())
