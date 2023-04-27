@@ -87,6 +87,7 @@ print("Version 1.0 Halis Apostolos")
 #configuration
 numOfInstances = int(input("Number of instances: "))
 meetingID = input("Meeting ID: ") 
+password = input("[OPTIONAL] Password: ")
 lifespan = int(input("Lifespan of bots: "))
 mode =input("[OPTIONAL] Do you want reactions?\n1) Thumbs up\n2) Clapping\n3) Laughing\n4) Surprized\n5) Booing\n6) Silence\n")
 react = True 
@@ -122,6 +123,7 @@ fOptions.add_argument('--disable-gpu')
 for i in range(numOfInstances):
     num = random.randint(0, len(usernames) -1)
     print(usernames[num] + " is queing up to join")
+
 #connecting to the jit.si meeting
     driver = webdriver.Firefox(options= fOptions)
     driverList.append(driver) # adding them to an object list so I can shut the instances down later
@@ -134,8 +136,23 @@ for i in range(numOfInstances):
     fieldName.send_keys(usernames[num])
     time.sleep(1)
     fieldName.send_keys(Keys.RETURN)
-    print(usernames[num] + " is joining...")
+    time.sleep(5)
+    
+    #password handling part
+    #if there is a password field, type password and press enter
+    try: 
+        #checking for password field 
+        passwordField = driver.find_element(By.CLASS_NAME, "css-hh0z88-input") #that's the class name of the field for some reason 
+        print("Password protection found")
 
+        if passwordField: 
+            passwordField.send_keys(password)
+            time.sleep(1)
+            passwordField.send_keys(Keys.RETURN) 
+    except: 
+        print("No password protection found")
+    
+    print(usernames[num] + " is joining...")
     print(usernames[num] + " joined!")
 
 print("Bot lifespan started")
