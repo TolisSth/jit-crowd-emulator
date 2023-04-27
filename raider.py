@@ -151,8 +151,12 @@ while time.time() < end_time:
     ready, _, _ = select.select([sys.stdin], [], [], 0.1)
     if ready:
         userIn = sys.stdin.readline().strip()
-        if userIn == "q" or "Q":
+        if userIn.lower() == "q":
             break
+        elif userIn.lower() == "r":
+            react = False
+        elif userIn.lower() == "e":
+            react = True
 
 #shutting the instances down
 for i in range(len(driverList)):
