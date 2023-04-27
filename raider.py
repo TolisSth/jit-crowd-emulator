@@ -114,6 +114,8 @@ else:
 print("Starting browser instance")
 fOptions.set_preference("permissions.default.microphone", 2)
 fOptions.set_preference("permissions.default.camera", 2)
+fOptions.set_preference("media.cubeb.backend", "alsa") #this mutes the browser's audio on Linux
+fOptions.add_argument("--mute-audio") # this mutes this audio
 fOptions.add_argument('--headless')
 fOptions.add_argument('--disable-gpu')
 
