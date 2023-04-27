@@ -10,6 +10,21 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 
+def autoAdmitReject(mode): 
+    #1 accept only 
+    #2 reject only 
+    if mode == 1: 
+        buttonToClick = 'Admit'
+    elif mode == 2: 
+        buttonToClick = "Reject"
+
+    try:
+        admitButton = driver.find_element(By.XPATH, "//button[text()='" + buttonToClick + "']")
+        time.sleep(3)
+        admitButton.click()
+    except:
+        pass
+
 def reactions(drivers, mode):
     #1 thumbs up
     #2 clapping 
@@ -90,6 +105,12 @@ meetingID = input("Meeting ID: ")
 password = input("[OPTIONAL] Password: ")
 lifespan = int(input("Lifespan of bots: "))
 mode =input("[OPTIONAL] Do you want reactions?\n1) Thumbs up\n2) Clapping\n3) Laughing\n4) Surprized\n5) Booing\n6) Silence\n")
+aOrR = True
+acceptOrReject = input("Do you want the bots to automatically admit or reject users:\n1)Admit\n2)Reject\n")
+if acceptOrReject == "": 
+    aOrR = False
+if acceptOrReject != "": 
+    acceptOrReject = int(acceptOrReject)
 react = True 
 if mode == "":
     react = False
@@ -163,6 +184,8 @@ end_time = int(start_time + lifespan)
 while time.time() < end_time: 
     if react == True: 
         reactions(driverList, mode)
+    if aOrR == True: 
+        autoAdmitReject(acceptOrReject)
 
     #passive intake of input 
     ready, _, _ = select.select([sys.stdin], [], [], 0.1)
