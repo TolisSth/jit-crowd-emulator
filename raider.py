@@ -6,8 +6,73 @@ import random
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
+
+def reactions(drivers, mode):
+    #1 thumbs up
+    #2 clapping 
+    #3 laughing
+    #4 wow
+    #5 booing 
+    #6 silence
+    selectRandomDriver = random.randint(0, len(drivers) - 1)
+    #initializing action chains 
+    actions = ActionChains(drivers[selectRandomDriver])
+    if mode == 1:
+            #ALT + t thumbs up 
+            print("Thumbs up")
+            actions.key_down(Keys.ALT).perform()
+            time.sleep(1)
+            actions.send_keys('t')
+            time.sleep(1)
+            actions.key_up(Keys.ALT).perform()
+
+    if mode == 2:
+        #ALT + c clapping
+        print("Clapping")
+        actions.key_down(Keys.ALT).perform()
+        time.sleep(1)
+        actions.send_keys('c')
+        time.sleep(1)
+        actions.key_up(Keys.ALT).perform()
+
+    if mode == 3:
+            #ALT + l laughing 
+            print("Laughing")
+            actions.key_down(Keys.ALT).perform()
+            time.sleep(1)
+            actions.send_keys('l')
+            time.sleep(1)
+            actions.key_up(Keys.ALT).perform()
+
+    if mode == 4:
+            #ALT + o Wow 
+            print("Wow")
+            actions.key_down(Keys.ALT).perform()
+            time.sleep(1)
+            actions.send_keys('o')
+            time.sleep(1)
+            actions.key_up(Keys.ALT).perform()
+
+    if mode == 5:
+                #ALT + o booing 
+                print("Boo")
+                actions.key_down(Keys.ALT).perform()
+                time.sleep(1)
+                actions.send_keys('b')
+                time.sleep(1)
+                actions.key_up(Keys.ALT).perform()
+
+    if mode == 6:
+                #ALT + o silcence 
+                print("Silence")
+                actions.key_down(Keys.ALT).perform()
+                time.sleep(1)
+                actions.send_keys('s')
+                time.sleep(1)
+                actions.key_up(Keys.ALT).perform()
 
 #branding
 print("       _ _ _     _____       _     _ ")
@@ -23,6 +88,12 @@ print("Version 1.0 Halis Apostolos")
 numOfInstances = int(input("Number of instances: "))
 meetingID = input("Meeting ID: ") 
 lifespan = int(input("Lifespan of bots: "))
+mode =input("[OPTIONAL] Do you want reactions?\n1) Thumbs up\n2) Clapping\n3) Laughing\n4) Surprized\n5) Booing\n6) Silence\n")
+react = True 
+if mode == "":
+    react = False
+if mode != "":
+    mode = int(mode)
 filePath = str(input("[OPTIONAL] Username file path: "))
 fOptions = Options()
 driverList = []
@@ -69,7 +140,12 @@ print("Bot lifespan started")
 start_time = int(time.time())
 end_time = int(start_time + lifespan)
 
+#main loop
 while time.time() < end_time: 
+    if react == True: 
+        reactions(driverList, mode)
+
+    #passive intake of input 
     ready, _, _ = select.select([sys.stdin], [], [], 0.1)
     if ready:
         userIn = sys.stdin.readline().strip()
