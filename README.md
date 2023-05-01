@@ -1,6 +1,6 @@
 # Jit Crowd Emulator 
 ## What is this? 
-Jit Crowd Emulator is a python script that utilizes the Selenium browser automation suite to create a artificial crowd in your Jit.si meeting.
+Jit Crowd Emulator is a python script that utilizes the Selenium browser automation suite to create an artificial crowd in your Jit.si meeting.
 ## What are the capabilities of this crowd
 This crowd can: 
 1. Join meetings (even password protected ones)
