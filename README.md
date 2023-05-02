@@ -19,7 +19,7 @@ The script is pretty straight forward but here is a cheatsheet if you will:
 - ```Do you want reactions``` this prints out a list and you are called to choose between the reactions or even choose to not have reactions at all by hitting enter. It is to be noted that during runtime you can disable reactions by pressing r and enable them again by pressing e 
 - ```Username file path``` this file will contain the usernames that the bots will use, if you do not have a file tha contains usernames, you can enter some usernames manually after hitting enter.
 
-##Requirments
+## Requirments
 Before you go ahead and create artificial crowd you will first need to download and install ```selenium``` using the pip package manager. After that you will need to insure that you have installed a webdriver. Bellow there is a list.
 
 | Browser | Web Driver Link |
