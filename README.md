@@ -3,14 +3,14 @@
 ## What is this? 
 Jit Crowd Emulator is a python script that utilizes the Selenium browser automation suite to create an artificial crowd in your Jit.si meeting.
 
-## What are the capabilities of the artificial crowd
+## What are the capabilities of the artificial crowd?
 This crowd can: 
 1. Join meetings (even password protected ones)
 2. React using the Jit.si default reactions
 3. Admit or reject other members from the lobby 
 The third item in the list gives this script a moderator bot attribute. 
 
-## How to use
+## How to use?
 The script is pretty straight forward but here is a cheatsheet if you will: 
 - ```Number of instances``` refers to the populations of your artificial crowd
 - ```Meeting ID``` refers to the id of your meeting e.g.: https://meet.jit.si/meeting-id
