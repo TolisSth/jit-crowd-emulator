@@ -168,6 +168,12 @@ for i in range(numOfInstances):
     print("Going to: " + "https://meet.jit.si/" + meetingID)
     driver.get("https://meet.jit.si/" + meetingID) 
 
+    #Checking the "I understand the risks" checkbox
+    checkbox = driver.find_element(By.CLASS_NAME, "checkmark")
+    print("Clicking I understand the risks checkbox")
+    checkbox.click()
+    time.sleep(2)
+
     #name field manipulation 
     fieldName = driver.find_element(By.CLASS_NAME, "css-hh0z88-input") #that's the class name of the field for some reason 
     print("Typing name")
@@ -175,7 +181,7 @@ for i in range(numOfInstances):
     time.sleep(1)
     fieldName.send_keys(Keys.RETURN)
     time.sleep(5)
-    
+
     #password handling part
     #if there is a password field, type password and press enter
     try: 
