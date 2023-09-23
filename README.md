@@ -32,4 +32,4 @@ Before you go ahead and create artificial crowds you will first need to download
 for more information on webdrivers and the selenium installation process visit: https://selenium-python.readthedocs.io/installation.html
 
 ## Disclaimer 
-This project is a crowd emulator and it is advised to be used like that and not in any malicious way. I as the creator I do not condone the use of my program as way to disrupt meetings or annoy individuals.
+This project is a crowd emulator and it is advised to be used just like that and not in any malicious way. I as the creator do not condone the use of my program as a way to disrupt meetings or harass individuals.
